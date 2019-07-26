@@ -1,0 +1,2 @@
+class EmailValidation < ApplicationRecord
+end

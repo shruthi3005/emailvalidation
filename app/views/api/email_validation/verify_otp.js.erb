@@ -1,0 +1,6 @@
+<% if @status[:result] == true %><%= puts "The blog is Visible"%>
+window.location.replace("<%= article_path(@article) %>");
+<% else %>
+alert('Invalid OTP')
+
+<% end %>

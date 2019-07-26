@@ -1,0 +1,11 @@
+Sent the vaidaton code to your email<%= form_tag api_verify_otp_path, :method => :get,:remote => true, :html => {:'data-type' => 'json', id: "otp_form"} do %>Enter the validation code
+  <%= hidden_field_tag :article_id, nil, value: @article.id %>
+  <%= hidden_field_tag :email,nil, value: @email %>
+  <div class="field">
+    
+    <%= text_field_tag :otp %>
+  </div>  
+  <div class="actions">
+    <%= submit_tag "Submit", class: "btn btn-large btn-primary" %>
+  </div>
+<% end %>
