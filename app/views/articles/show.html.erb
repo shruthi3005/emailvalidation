@@ -15,10 +15,10 @@
     <%= text_field_tag :otp %>
   </div>  
   <div class="actions">
-    <%= submit_tag "Submit", class: "btn btn-large btn-primary" %>
+    <%= submit_tag "Submit", class: "btn btn-large btn-primary", id: "submit" %>
   </div>
 <% end %>
-
+  
       </div>
     </div>
   </div>
@@ -39,4 +39,10 @@
   $(document).ready(function(){
     $('#Modalopen').modal('show')
   });
+</script>
+<script type="text/javascript">
+
+  $('#submit').click(function(){
+  $('#Modalopen').modal('hide')
+});
 </script>
