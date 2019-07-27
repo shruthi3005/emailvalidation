@@ -80,10 +80,10 @@ $(document).ready(function(){
   $('#article_id').val($(this).data("article-id"))
 
   });
-
   $(document).on('ajax:success', function(data, status, xhr) {
     if(data["result"] == true ){
-window.location = '<%= articles_path(@article) %>';}
+      window.location = '<%= articles_path( @article) %>';    
+}
     else if (data["result"] == false) {
       alert("Invalid OTP");
     }

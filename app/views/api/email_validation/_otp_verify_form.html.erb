@@ -1,6 +1,6 @@
-Sent the vaidaton code to your email<%= form_tag api_verify_otp_path, :method => :get,:remote => true, :html => {:'data-type' => 'json', id: "otp_form"} do %>Enter the validation code
+Sent the validaton code to your email<%= form_tag api_verify_otp_path, :method => :get,:remote => true, :html => {:'data-type' => 'json', id: "otp_form"} do %>Enter the validation code
   <%= hidden_field_tag :article_id, nil, value: @article.id %>
-  <%= hidden_field_tag :email,nil, value: @email %>
+  <%= hidden_field_tag :email,nil, value: session[:email] %>
   <div class="field">
     
     <%= text_field_tag :otp %>
