@@ -1,6 +1,6 @@
 <% if @status[:result] == true %>
-window.location("<%= article_path(@article) %>");
-  <% else %>
+      $('#modalopen').hide();
+<% else %>
   alert('Invalid OTP')
 
   <% end %>

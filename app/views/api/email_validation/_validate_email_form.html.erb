@@ -1,9 +1,9 @@
 <%= form_tag api_validate_email_path, :method => :get, remote: true do %>
-          <%= hidden_field_tag :article_id %>
-          <div class="field">Email<br/>
-            <%= email_field_tag :from,nil, :required => true %>
-          </div>
-          <div class="actions">
-            <%= submit_tag "Send", class: "btn btn-large btn-primary" %>
-          </div>
-        <% end %>
+  <%= hidden_field_tag :article_id %>
+    <div class="field">Email<br/>
+      <%= email_field_tag :from,nil, :required => true %>
+    </div>
+    <div class="actions">
+      <%= submit_tag "Send", class: "btn btn-large btn-primary" %>
+    </div>
+<% end %>

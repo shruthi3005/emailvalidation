@@ -8,7 +8,7 @@
         </button>
       </div>
       <div class="modal-body">Enter your OTP
-        <%= form_tag api_verify_otp_path, :method => :get,:remote => true, :html => {:'data-type' => 'json', id: "otp_form"} do %>Enter the validation code
+        <%= form_tag api_verify_otp_path, :method => :get, :remote => true, :html => {:'data-type' => 'json', id: "otp_form"} do %>Enter the validation code
   <%= hidden_field_tag :article_id, nil, value: @article.id %>
   <div class="field">
     
@@ -16,10 +16,10 @@
   </div>  
   <div class="actions">
     <%= submit_tag "Submit", class: "btn btn-large btn-primary", id: "submit" %>
-    <%= button_to 'No Email', validate_email_path, method: :get %>
   </div>
 <% end %>
-  
+  <%= button_to 'No Email', api_validate_email_path, method: :get, params: { article_id: @article.id } %>
+
       </div>
     </div>
   </div>
@@ -41,10 +41,4 @@
     $('#modalopen').modal('show')
   });
 </script>
-<script type="text/javascript">
-  $(document).ready(function(){
-    $('#submit').click(function() {
-    $('#modalopen').modal('hide');
-});
-});
-</script>
+
