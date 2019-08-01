@@ -8,31 +8,29 @@
         </button>
       </div>
       <div class="modal-body">
-        <div id="form2">Enter your OTP
-        <%= form_tag api_verify_otp_path, :method => :get, :remote => true, :html => {:'data-type' => 'json', id: "otp_form"} do %>Enter the validation code
-  <%= hidden_field_tag :article_id, nil, value: @article.id %>
-  <div class="field">
-    
-    <%= text_field_tag :otp %>
-  </div>  
-  <div class="actions">
-    <%= submit_tag "Submit", class: "btn btn-large btn-primary", id: "submit" %>
-  </div>
-<% end %>
-</div>
-<div id="form1">
-<%= form_tag api_verify_otp_path, :method => :get, :remote => true, :html => {:'data-type' => 'json', id: "otp_form"} do %>Enter the validation code
-  <%= hidden_field_tag :article_id, nil, value: @article.id %>
-  <div class="field">
-    
-    <%= text_field_tag :otp %>
-  </div>  
-  <div class="actions">
-    <%= submit_tag "Submit", class: "btn btn-large btn-primary", id: "submit" %>
-  </div>
-<% end %>
-</div>
-  <%= submit_tag "New OTP", class: "btn btn-large btn-primary", id: "otp" %>
+        <div id="form2">
+          Enter your OTP <%= form_tag api_verify_otp_path, :method => :get, :remote => true, :html => {:'data-type' => 'json', id: "otp_form"} do %>Enter the validation code
+          <%= hidden_field_tag :article_id, nil, value: @article.id %>
+          <div class="field">
+            <%= text_field_tag :otp %>
+          </div>  
+          <div class="actions">
+            <%= submit_tag "Submit", class: "btn btn-large btn-primary", id: "submit" %>
+          </div>
+          <% end %>
+        </div>
+        <div id="form1">Enter your Email
+          <%= form_tag api_validate_email_path, :method => :get, remote: true do %>
+          <%= hidden_field_tag :article_id, @article.id %>
+            <div class="field">
+              <%= email_field_tag :from,nil, :required => true %>
+            </div>
+            <div class="actions">
+              <%= submit_tag "Send", class: "btn btn-large btn-primary" %>
+            </div>
+          <% end %>
+       </div>
+         <button type="button" class="otp">New OTP</button>
       </div>
     </div>
   </div>
@@ -54,16 +52,13 @@
 <script type="text/javascript">
   $(document).ready(function(){
     $('#modalopen').modal('show')
+  });
+</script>
+<script type="text/javascript">
+  $(document).ready(function(){
     $('#form1').hide()
-    $('#otp').click(function(){
+    $('.otp').on('click', function(){
       $('#form1').show()
     });
   });
 </script>
-<!-- <script type="text/javascript">
-  $(document).ready(function(){
-    $('#otp').click(function(){
-      $('#form1').show()
-    });
-  });
-</script> -->
