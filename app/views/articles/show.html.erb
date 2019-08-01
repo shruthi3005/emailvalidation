@@ -2,8 +2,6 @@
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
-      
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
@@ -12,7 +10,7 @@
           Enter your OTP <%= form_tag api_verify_otp_path, :method => :get, :remote => true, :html => {:'data-type' => 'json', id: "otp_form"} do %>Enter the validation code
           <%= hidden_field_tag :article_id, nil, value: @article.id %>
           <div class="field">
-            <%= text_field_tag :otp %>
+            <%= text_field_tag :otp, nil, :required => true %>
           </div>  
           <div class="actions">
             <%= submit_tag "Submit", class: "btn btn-large btn-primary", id: "submit" %>
@@ -61,4 +59,10 @@
       $('#form1').show()
     });
   });
+</script>
+<script type="text/javascript">
+$('#modalopen').modal({
+    backdrop: 'static',
+    keyboard: false
+})
 </script>
