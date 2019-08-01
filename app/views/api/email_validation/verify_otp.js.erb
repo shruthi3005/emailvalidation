@@ -1,5 +1,6 @@
 <% if @status[:result] == true %>
       $('#modalopen').hide();
+      $(".modal-backdrop").remove();
 <% else %>
   alert('Invalid OTP')
 
